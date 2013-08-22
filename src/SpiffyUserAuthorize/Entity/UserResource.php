@@ -4,7 +4,7 @@ namespace SpiffyUserAuthorize\Entity;
 
 use SpiffyAuthorize\Permission\PermissionInterface;
 
-class UserResource implements PermissionInterface, UserResourceInterface
+class UserResource implements PermissionInterface
 {
     /**
      * @var array

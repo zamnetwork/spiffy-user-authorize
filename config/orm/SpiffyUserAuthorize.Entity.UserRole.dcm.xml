@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="ZfcUserAuthorize\Entity\UserRole" table="user_role">
+    <entity name="SpiffyUserAuthorize\Entity\UserRole" table="user_role">
 
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO" />
@@ -12,7 +12,7 @@
 
         <field name="name" type="string" unique="true" />
 
-        <many-to-many target-entity="ZfcUserAuthorize\Entity\UserResource" inversed-by="roles" field="resources">
+        <many-to-many target-entity="SpiffyUserAuthorize\Entity\UserResource" inversed-by="roles" field="resources">
             <join-table name="user_role_resource">
                 <join-columns>
                     <join-column name="user_role_id" referenced-column-name="id" />
@@ -23,13 +23,22 @@
             </join-table>
         </many-to-many>
 
-        <many-to-one target-entity="ZfcUserAuthorize\Entity\UserRole" field="parent" inversed-by="children">
+        <many-to-one target-entity="SpiffyUserAuthorize\Entity\UserRole" field="parent" inversed-by="children">
             <join-column name="parent_id" nullable="true" />
         </many-to-one>
 
-        <one-to-many target-entity="ZfcUserAuthorize\Entity\UserRole" mapped-by="parent" field="children" />
+        <one-to-many target-entity="SpiffyUserAuthorize\Entity\UserRole" field="children" mapped-by="parent" />
 
-        <many-to-many target-entity="ZfcUserAuthorize\Entity\User" field="users" mapped-by="roles" />
+        <many-to-many target-entity="Application\Entity\User" field="users">
+            <join-table name="user_role_user">
+                <join-columns>
+                    <join-column name="user_role_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="user_id" referenced-column-name="id"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
 
     </entity>
 

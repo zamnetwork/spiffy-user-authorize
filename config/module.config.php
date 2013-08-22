@@ -2,24 +2,15 @@
 
 return array(
     'doctrine' => array(
-        'authentication' => array(
-            'orm_default' => array(
-                'identity_class' => 'SpiffyUserAuthorize\Entity\User'
-            )
-        ),
-
         'driver' => array(
-            'zfc_user_doctrine' => null,
-
-            'zfc_user_authorize' => array(
+            'spiffy_user_authorize_orm' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
                 'paths' => array(__DIR__ . '/orm')
             ),
 
             'orm_default' => array(
                 'drivers' => array(
-                    'SpiffyUserAuthorize\Entity' => 'zfc_user_authorize',
-                    'SpiffyUserDoctrine\Entity'  => null,
+                    'SpiffyUserAuthorize\Entity' => 'spiffy_user_authorize_orm',
                 )
             )
         )
@@ -33,7 +24,7 @@ return array(
                 'name' => 'SpiffyAuthorize\Provider\Permission\ObjectManager\RbacProvider',
                 'options' => array(
                     'object_manager' => 'Doctrine\ORM\EntityManager',
-                    'target_class' => 'SpiffyUserAuthorize\Entity\UserResource',
+                    'target_class'   => 'SpiffyUserAuthorize\Entity\UserResource',
                 )
             )
         ),
@@ -49,16 +40,9 @@ return array(
         )
     ),
 
-    'zfc_user' => array(
+    'spiffy_user' => array(
         'extensions' => array(
-            'authorize'          => 'SpiffyUserAuthorize\Extension',
-            'authorize_doctrine' => 'SpiffyUserAuthorize\DoctrineExtension',
-
-            'user' => array(
-                'options' => array(
-                    'entity_class' => 'SpiffyUserAuthorize\Entity\User'
-                )
-            )
+            'authorize' => 'SpiffyUserAuthorize\Extension',
         )
     ),
 );
