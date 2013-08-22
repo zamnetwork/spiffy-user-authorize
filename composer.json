@@ -1,13 +1,13 @@
 {
-    "name": "zf-commons/zfc-user-authorize",
+    "name": "spiffy/spiffy-user-authorize",
     "require": {
-        "php": ">=5.3.3",
-        "zf-commons/zfc-user": "dev-master"
+        "php": ">=5.4",
+        "spiffy/spiffy-user": "dev-master"
     },
     "autoload": {
         "psr-0": {
-            "ZfcUserAuthorize": "src/",
-            "ZfcUserAuthorizeTest": "test/"
+            "SpiffyUserAuthorize": "src/",
+            "SpiffyUserAuthorizeTest": "test/"
         }
     }
 }
