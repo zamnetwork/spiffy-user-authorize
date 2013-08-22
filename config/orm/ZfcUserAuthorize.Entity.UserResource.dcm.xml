@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="ZfcUserAuthorize\Entity\UserResource" table="user_resource">
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="name" type="string" unique="true" />
+
+        <many-to-many target-entity="ZfcUserAuthorize\Entity\UserRole" mapped-by="resources" field="roles" />
+
+    </entity>
+
+</doctrine-mapping>

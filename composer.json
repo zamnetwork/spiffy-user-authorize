@@ -1,0 +1,13 @@
+{
+    "name": "zf-commons/zfc-user-authorize",
+    "require": {
+        "php": ">=5.3.3",
+        "zf-commons/zfc-user": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "ZfcUserAuthorize": "src/",
+            "ZfcUserAuthorizeTest": "test/"
+        }
+    }
+}
