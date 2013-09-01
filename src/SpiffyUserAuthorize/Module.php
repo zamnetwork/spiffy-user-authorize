@@ -2,11 +2,13 @@
 
 namespace SpiffyUserAuthorize;
 
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\Console\Adapter\AdapterInterface;
+use Zend\Console\ColorInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
 
 class Module implements
-    AutoloaderProviderInterface,
+    ConsoleUsageProviderInterface,
     ConfigProviderInterface
 {
     /**
@@ -20,14 +22,17 @@ class Module implements
     /**
      * {@inheritDoc}
      */
-    public function getAutoloaderConfig()
+    public function getConsoleUsage(AdapterInterface $console)
     {
-        return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__,
-                ),
-            ),
-        );
+        return [
+            $console->colorize('Usage:', ColorInterface::YELLOW),
+            '  [options] command [arguments]',
+            '',
+            $console->colorize('Available Commands:', ColorInterface::YELLOW),
+            [
+                $console->colorize('  spiffyuser build', ColorInterface::GREEN),
+                'builds the roles and resources for using default configuration'
+            ],
+        ];
     }
 }
