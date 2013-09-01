@@ -9,7 +9,10 @@ class Extension extends AbstractExtension
     /**
      * @var array
      */
-    protected $options = array();
+    protected $options = [
+        'user_resource_class' => 'SpiffyUserAuthorize\Entity\UserResource',
+        'user_role_class'     => 'SpiffyUserAuthorize\Entity\UserRole',
+    ];
 
     /**
      * {@inheritDoc}
