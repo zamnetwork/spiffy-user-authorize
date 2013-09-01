@@ -2,6 +2,7 @@
     "name": "spiffy/spiffy-user-authorize",
     "require": {
         "php": ">=5.4",
+        "spiffy/spiffy-authorize": "dev-master",
         "spiffy/spiffy-user": "dev-master"
     },
     "autoload": {
