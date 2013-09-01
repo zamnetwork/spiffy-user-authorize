@@ -29,17 +29,6 @@
 
         <one-to-many target-entity="SpiffyUserAuthorize\Entity\UserRole" field="children" mapped-by="parent" />
 
-        <many-to-many target-entity="Application\Entity\User" field="users">
-            <join-table name="user_role_user">
-                <join-columns>
-                    <join-column name="user_role_id" referenced-column-name="id" />
-                </join-columns>
-                <inverse-join-columns>
-                    <join-column name="user_id" referenced-column-name="id"/>
-                </inverse-join-columns>
-            </join-table>
-        </many-to-many>
-
     </entity>
 
 </doctrine-mapping>
