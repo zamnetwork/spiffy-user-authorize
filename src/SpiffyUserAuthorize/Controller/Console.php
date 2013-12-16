@@ -39,9 +39,8 @@ class Console extends AbstractActionController
 
         /** @var \SpiffyUser\Extension\Doctrine $doctrine */
         $doctrine = $manager->get('doctrine');
-
-        $om     = $doctrine->getObjectManager();
-        $roleOr = $om->getRepository($roleClass);
+        $om       = $doctrine->getObjectManager();
+        $roleOr   = $om->getRepository($roleClass);
 
         foreach ($options->getRoles() as $parent => $children) {
             if (is_int($parent)) {
@@ -91,7 +90,7 @@ class Console extends AbstractActionController
                     $om->persist($permEntity);
                 }
 
-                if (!$roleEntity->getResources()->contains($permEntity)) {
+                if ($roleEntity->getResources() && !$roleEntity->getResources()->contains($permEntity)) {
                     $roleEntity->getResources()->add($permEntity);
                 }
             }
