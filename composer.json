@@ -2,13 +2,18 @@
     "name": "spiffy/spiffy-user-authorize",
     "require": {
         "php": ">=5.4",
-        "spiffy/spiffy-authorize": "dev-master",
-        "spiffy/spiffy-user": "dev-master"
+        "spiffy/spiffy-authorize": "~1.0",
+        "spiffy/spiffy-user": "~1.0"
     },
     "autoload": {
         "psr-0": {
             "SpiffyUserAuthorize": "src/",
             "SpiffyUserAuthorizeTest": "test/"
         }
-    }
+    },
+    "extra": {
+      "branch-alias": {
+          "dev-develop": "1.x-dev"
+      }
+  }
 }
