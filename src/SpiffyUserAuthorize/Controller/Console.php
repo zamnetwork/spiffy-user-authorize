@@ -88,6 +88,7 @@ class Console extends AbstractActionController
                     $permEntity = new $resourceClass();
                     $permEntity->setName($resource);
                     $om->persist($permEntity);
+                    $om->flush();
                 }
 
                 if ($roleEntity->getResources() && !$roleEntity->getResources()->contains($permEntity)) {
